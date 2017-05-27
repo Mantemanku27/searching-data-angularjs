@@ -1,0 +1,112 @@
+<!-- 
+   |||       ||||        |||       |||     || ||||||||||||  ||||||||||  |||       |||        |||       |||     ||
+   ||||     || ||       |||||      ||||    ||      ||       ||          ||||     ||||       |||||      ||||    ||
+   || ||   ||  ||      ||   ||     || ||   ||      ||       ||          || ||   || ||      ||   ||     || ||   ||
+   ||  || ||   ||     ||     ||    ||  ||  ||      ||       ||||||||||  ||  || ||  ||     ||     ||    ||  ||  ||
+   ||   |||    ||    |||||||||||   ||   || ||      ||       ||          ||   |||   ||    |||||||||||   ||   || ||
+   ||    |     ||   ||         ||  ||    ||||      ||       ||          ||    |    ||   ||         ||  ||    ||||
+  ||||        |||| ||||       |||| ||     |||      ||       |||||||||| ||||       |||| ||||       |||| ||     |||
+-->
+<!-- Include Dari SiswasCreateCtrl -->
+<div ng-controller="SiswasCreateCtrl">
+  <!-- Page Title -->
+  <section id="page-title">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1 class="mainTitle">FORM CREATE DATA SISWA</h1>
+      </div>
+      <div ncy-breadcrumb></div>
+    </div>
+  </section>
+  <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+    {{alert.msg}}
+  </uib-alert>
+  <!-- /end page title -->
+
+  <!-- Form Validation -->
+  <div class="container-fluid container-fullw bg-white">
+    <div class="row">
+      <div class="col-md-12">
+        <div>
+
+          <!-- Form Input -->
+          <form name="Form">
+
+            <!-- Form Data Input -->
+            <div class="row">
+              <div class="col-md-12">
+                <fieldset>
+                  <!-- Form input Nama -->
+                  <div class="form-group" ng-class="{'has-error':Form.nama.$dirty && Form.nama.$invalid, 'has-success':Form.nama.$valid}">
+                    <label class="control-label"> Nama <span class="symbol required"></span></label>
+                    <input type="text" placeholder="Enter your Nama" class="form-control" name="nama" ng-model="myModel.nama" required />
+                    <span class="error text-small block" ng-if="Form.nama.$dirty && Form.nama.$invalid">Nama is required</span>
+                    <span class="success text-small" ng-if="Form.nama.$valid">Thank You!</span>
+                  </div>
+                  <!-- Form Input Sekolah -->
+                  <div class="form-group" ng-class="{'has-error':Form.sekolah.$dirty && Form.sekolah.$invalid, 'has-success':Form.sekolah.$valid}">
+                    <label class="control-label"> Sekolah <span class="symbol required"></span></label>
+                    <input type="text" placeholder="Enter your Sekolah" class="form-control" name="sekolah" ng-model="myModel.sekolah" required />
+                    <span class="error text-small block" ng-if="Form.sekolah.$dirty && Form.sekolah.$invalid">Sekolah is required</span>
+                    <span class="success text-small" ng-if="Form.sekolah.$valid">Thank You!</span>
+                  </div>
+                  <!-- Form Input Kelas -->
+                  <div class="form-group" ng-class="{'has-error':Form.kelas.$dirty && Form.kelas.$invalid, 'has-success':Form.kelas.$valid}">
+                    <label class="control-label"> Kelas <span class="symbol required"></span></label>
+                    <input type="text" placeholder="Enter your Kelas" class="form-control" name="kelas" ng-model="myModel.kelas" required>
+                    <span class="error text-small block" ng-if="Form.kelas.$dirty && Form.kelas.$error.required">Kelas is required.</span>
+                    <span class="success text-small" ng-if="Form.kelas.$valid">Thank You!</span>
+                  </div>
+                  <!-- Form input NIS -->
+                  <div class="form-group" ng-class="{'has-error':Form.nis.$dirty && Form.nis.$invalid, 'has-success':Form.nis.$valid}">
+                    <label class="control-label"> NIS <span class="symbol required"></span></label>
+                    <input type="text" placeholder="Enter your NIS" class="form-control" name="nis" ng-model="myModel.nis" required />
+                    <span class="error text-small block" ng-if="Form.nis.$dirty && Form.nis.$invalid">NIS is required</span>
+                    <span class="success text-small" ng-if="Form.nis.$valid">Thank You!</span>
+                  </div>
+                  <!-- Form input Jenis Kelamin -->
+                  <div class="form-group" ng-class="{'has-error':Form.jk.$dirty && Form.jk.$invalid, 'has-success':Form.jk.$valid}">
+                    <label class="control-label"> Jenis Kelamin <span class="symbol required"></span></label>
+                    <select class="form-control" name="jk" ng-model="myModel.jk" required>
+                      <option value="" disabled selected>Silahkan pilih Jenis Kelamin</option>
+                      <option value="Laki-laki">Laki-laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
+                    <span class="error text-small block" ng-if="Form.jk.$dirty && Form.jk.$invalid">Jenis Kelamin is required</span>
+                    <span class="success text-small" ng-if="Form.jk.$valid">Thank You!</span>
+                  </div>
+                  <!-- Form input Alamat -->
+                  <div class="form-group" ng-class="{'has-error':Form.alamat.$dirty && Form.alamat.$invalid, 'has-success':Form.alamat.$valid}">
+                    <label class="control-label"> Alamat <span class="symbol required"></span></label>
+                    <input type="text" placeholder="Enter your Alamat" class="form-control" name="alamat" ng-model="myModel.alamat" required />
+                    <span class="error text-small block" ng-if="Form.alamat.$dirty && Form.alamat.$invalid">Alamat is required</span>
+                    <span class="success text-small" ng-if="Form.alamat.$valid">Thank You!</span>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <!-- /end form data input -->
+
+            <!-- Button Aksi -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="pull-left">
+                  <button md-ink-ripple class="btn btn-primary" ng-click="submitData(true)" ng-disabled="Form.$invalid || process">Simpan & Kembali</button>
+                  <button type="reset" class="btn btn-primary btn-o" ng-disabled="process" ng-click="form.reset(Form)">Reset</button>
+                  <button md-ink-ripple class="btn btn-primary btn-o" ui-sref="app.siswas" ng-disabled="process">Kembali</button>
+                </div>
+              </div>
+            </div>
+            <!-- /end button aksi -->
+                        
+          </form>
+          <!-- /end form input -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /end form validation -->
+  
+</div>
+<!-- /end include dari siswascreatectrl -->
