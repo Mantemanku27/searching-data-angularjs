@@ -27,12 +27,12 @@ class SiswaEditRequest extends Request
      * @var array
      */
     protected $attrs = [
-        'nama'    => 'Nama',
-        'sekolah'    => 'Sekolah',
-        'kelas'    => 'Kelas',
-        'nis'   => 'Nis',
+        'nama' => 'Nama',
+        'sekolah' => 'Sekolah',
+        'kelas' => 'Kelas',
+        'nis' => 'Nis',
         'jk' => 'Jk',
-        'alamat'   => 'Alamat'
+        'alamat' => 'Alamat'
     ];
 
     /**
@@ -43,12 +43,12 @@ class SiswaEditRequest extends Request
     public function rules()
     {
         return [
-            'nama'    => 'required|max:227',
-            'sekolah'    => 'required|max:227',
-            'kelas'    => 'required|max:227',
-            'nis'   => 'required|max:2277',
+            'nama' => 'required|max:227',
+            'sekolah' => 'required|max:227',
+            'kelas' => 'required|max:227',
+            'nis' => 'required|max:2277',
             'jk' => 'required|max:227',
-            'alamat'   => 'required|max:227'
+            'alamat' => 'required|max:227'
         ];
     }
 

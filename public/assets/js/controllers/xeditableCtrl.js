@@ -203,4 +203,4 @@ function($scope, $filter) {
 		});
 		return selected.length ? selected.join(', ') : 'Not set';
 	};
-}]); 
+}]);

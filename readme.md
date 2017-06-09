@@ -1,8 +1,8 @@
-# CRUD Api Laravel 5.3
+# Searching Data Laravel 5.3 - AngularJS
 
-An example of a basic implementation of the Repository Pattern in Laravel 5.3
+Sebuah contoh 'Searching Data menggunakan Laravel v5.3 & AngularJS'
 
-# Quick Start Guide
+# Panduan Ringkas
 
 ## Instalation
 

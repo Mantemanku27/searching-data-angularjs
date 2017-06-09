@@ -56,7 +56,6 @@ class SiswaRepository extends AbstractRepository implements SiswaInterface, Crud
                     ->orWhere('sekolah', 'like', '%' . $search . '%')
                     ->orWhere('jk', 'like', '%' . $search . '%');
                 })
-        
             ->paginate($limit)
             ->toArray();
         return $akun;    
